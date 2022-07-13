@@ -1,0 +1,168 @@
+﻿Graded with the following test file:
+================================================================================
+<root>
+	<user>
+		<account>Chico3661</account>
+		<firstname>Leonard</firstname>
+		<lastname>Marx</lastname>
+		<description>Pianist</description>
+		<password>Password1</password>
+		<manager></manager>
+		<ou>comedians3661</ou>
+		<memberOf>
+			<group>Marx Brothers3661</group>
+			<group>GGMusicians3661</group>
+		</memberOf>
+	</user>
+	<user>
+		<account>Harpo3661</account>
+		<firstname>Arthur</firstname>
+		<lastname>Marx</lastname>
+		<description>Original firstname was Adolph</description>
+		<password>Password2</password>
+		<manager>Chico3661</manager>
+		<ou>comedians3661</ou>
+		<memberOf>
+			<group>Marx Brothers3661</group>
+			<group>Domain Admins</group>
+		</memberOf>
+	</user>
+	<user>
+		<account>Groucho3661</account>
+		<firstname>Julius Heney</firstname>
+		<lastname>Marx</lastname>
+		<description>Played guitar and sang</description>
+		<password>Password3</password>
+		<manager>Chico3661</manager>
+		<ou>comedians3661</ou>
+		<memberOf>
+			<group>Marx Brothers3661</group>
+			<group>GGMusicians3661</group>
+		</memberOf>
+
+	</user>
+	<user>
+		<account>Gummo3661</account>
+		<firstname>Milton</firstname>
+		<lastname>Marx</lastname>
+		<description>Left the troop to serve in WWII</description>
+		<password>Password4</password>
+		<manager>Chico3661</manager>
+		<ou>comedians3661</ou>
+		<memberOf>
+			<group>Marx Brothers3661</group>
+		</memberOf>
+
+	</user>
+	<user>
+		<account>Zeppo3661</account>
+		<firstname>Herbert</firstname>
+		<lastname>Marx</lastname>
+		<description>Vocalist</description>
+		<password>Password5</password>
+		<manager>Chico3661</manager>
+		<ou>comedians3661</ou>
+		<memberOf>
+			<group>Marx Brothers3661</group>
+		</memberOf>
+
+	</user>
+	<user>
+		<account>Manfred3661</account>
+		<firstname>Manfred</firstname>
+		<lastname>Marx</lastname>
+		<description>Died as an infant</description>
+		<password>Password6</password>
+		<manager>Chico3661</manager>
+		<ou>RIP3661</ou>
+		<memberOf>
+			<group>Marx Brothers3661</group>
+		</memberOf>
+	</user>
+	<user>
+		<account>Manfred3661</account>
+		<firstname>Manfred</firstname>
+		<lastname>Marx</lastname>
+		<description>Died as an infant</description>
+		<password>Password6</password>
+		<manager>Chico3661</manager>
+		<ou>RIP3661</ou>
+		<memberOf>
+			<group>Marx Brothers3661</group>
+		</memberOf>
+	</user>
+	<localGroupManagement>
+		<localGroup>
+			<name>Power Users</name>
+			<members>
+				<group>Marx Brothers3661</group>
+			</members>
+		</localGroup>
+		<localGroup>
+			<name>Musicians3661</name>
+			<members>
+				<group>GGMusicians3661</group>
+			</members>
+		</localGroup>
+	</localGroupManagement>
+</root>
+
+================================================================================
+Running script with command  '.\vredenburgbenjamin_165139_89543076_Manage-Users.ps1' 'C:\grading\3652\vredenburgbenjamin_165139_89543076_Manage-Users.xml'
+==============================Your Script's Output==============================
+    + FullyQualifiedErrorId : NamedParameterNotFound,Microsoft.ActiveDirectory.Management.Commands.GetADOrganizational  
+   Unit                                                                                                                 
+                                                                                                                        
+New-ADUser : Cannot bind parameter 'AccountPassword'. Cannot convert the "Password6" value of type "System.String" to   
+type "System.Security.SecureString".                                                                                    
+At C:\grading\3652\vredenburgbenjamin_165139_89543076_Manage-Users.ps1:21 char:135                                      
++ ... Description $user.description -AccountPassword $user.password -Manage ...                                         
++                                                    ~~~~~~~~~~~~~~                                                     
+    + CategoryInfo          : InvalidArgument: (:) [New-ADUser], ParameterBindingException                              
+    + FullyQualifiedErrorId : CannotConvertArgumentNoMessage,Microsoft.ActiveDirectory.Management.Commands.NewADUser    
+                                                                                                                        
+adding user Manfred3661 with the password of Password6                                                                  
+Get-ADGroup : A parameter cannot be found that matches parameter name 'ne'.                                             
+At C:\grading\3652\vredenburgbenjamin_165139_89543076_Manage-Users.ps1:28 char:24                                       
++         if(Get-ADGroup -ne $user.memberOf) {                                                                          
++                        ~~~                                                                                            
+    + CategoryInfo          : InvalidArgument: (:) [Get-ADGroup], ParameterBindingException                             
+    + FullyQualifiedErrorId : NamedParameterNotFound,Microsoft.ActiveDirectory.Management.Commands.GetADGroup           
+                                                                                                                        
+Add-ADGroupMember : Cannot bind parameter 'Identity'. Cannot convert the "System.Xml.XmlElement" value of type          
+"System.Xml.XmlElement" to type "Microsoft.ActiveDirectory.Management.ADGroup".                                         
+At C:\grading\3652\vredenburgbenjamin_165139_89543076_Manage-Users.ps1:31 char:37                                       
++         Add-ADGroupMember -Identity $user.memberOf -Members $user.Nam ...                                             
++                                     ~~~~~~~~~~~~~~                                                                    
+    + CategoryInfo          : InvalidArgument: (:) [Add-ADGroupMember], ParameterBindingException                       
+    + FullyQualifiedErrorId : CannotConvertArgumentNoMessage,Microsoft.ActiveDirectory.Management.Commands.AddADGroupM  
+   ember                                                                                                                
+                                                                                                                        
+adding user Manfred3661 to Marx Brothers3661 group                                                                      
+
+============================END Your Script's Output============================
+Scoring Script Results ...
+Verifying OU 'comedians3661'...OU Not found -3 points
+Verifying OU 'RIP3661'...OU Not found -3 points
+verifying Group 'Marx Brothers3661'...Group Not found -3 Points
+verifying Group 'GGMusicians3661'...Group Not found -3 Points
+Verifying user Chico3661...User Not Found - 4 Points
+  User Not in Group  - 0.214285714285714
+  User Not in Group  - 0.214285714285714
+Verifying user Harpo3661...User Not Found - 4 Points
+  User Not in Group  - 0.214285714285714
+  User Not in Group  - 0.214285714285714
+Verifying user Groucho3661...User Not Found - 4 Points
+  User Not in Group  - 0.214285714285714
+  User Not in Group  - 0.214285714285714
+Verifying user Gummo3661...User Not Found - 4 Points
+  User Not in Group  - 0.428571428571429
+Verifying user Zeppo3661...User Not Found - 4 Points
+  User Not in Group  - 0.428571428571429
+Verifying user Manfred3661...User Not Found - 4 Points
+  User Not in Group  - 0.428571428571429
+Verifying user Manfred3661...User Not Found - 4 Points
+  User Not in Group  - 0.428571428571429
+Graded impartially by a PowerShell script
+Final Score 7
+
